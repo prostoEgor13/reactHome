@@ -3,7 +3,7 @@ import "./style.scss";
 const StartPage=()=>{
     return(
         <div>
-            Start Page
+            Start Page NewInfo
         </div>
     )
 }
