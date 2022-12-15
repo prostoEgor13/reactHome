@@ -1,9 +1,10 @@
-import "./style.scss";
+// import "./style.scss";
+import { Routes,Route,Link } from 'react-router-dom';
 
 const StartPage=()=>{
     return(
         <div>
-            Start Page NewInfo
+         
         </div>
     )
 }
