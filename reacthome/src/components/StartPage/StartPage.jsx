@@ -1,10 +1,10 @@
-// import "./style.scss";
+import "./style.scss";
 import { Routes,Route,Link } from 'react-router-dom';
 
 const StartPage=()=>{
     return(
-        <div>
-         
+        <div className="a">
+         <Link to="/Toys">начать</Link>
         </div>
     )
 }

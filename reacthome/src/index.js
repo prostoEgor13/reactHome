@@ -4,13 +4,38 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import Start from './components/StartPage/StartPage';
+import Toys from './components/Toys/Toys';
+import TeeDec from './components/TreeDecoration/TreeDecoration';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/Start",
+    element: <Start />,
+  },
+  {
+    path: "/Toys",
+    element: <Toys />,
+  },
+  {
+    path: "/TeeDec",
+    element: <TeeDec />,
+  },
+
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter> 
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
