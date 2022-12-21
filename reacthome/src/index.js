@@ -3,39 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import Start from './components/StartPage/StartPage';
-import Toys from './components/Toys/Toys';
-import TeeDec from './components/TreeDecoration/TreeDecoration';
+import { BrowserRouter, Router } from 'react-router-dom';
+// import { Routes,Route,Link, Router } from 'react-router-dom';
+// import StartPage from './components/StartPage/StartPage';
+// import Toys from './components/Toys/Toys';
+
+import TreeDecoration from './components/TreeDecoration/TreeDecoration';
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
-} from "react-router-dom";
+} 
+from "react-router-dom";
+import routes from"./consts"
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/Start",
-    element: <Start />,
-  },
-  {
-    path: "/Toys",
-    element: <Toys />,
-  },
-  {
-    path: "/TeeDec",
-    element: <TeeDec />,
-  },
+const router = createBrowserRouter(routes);
+{/* <Router>
+  <Routes>
+    <Route path='/Toys' element={<Toys/>}/>
+  </Routes>
+</Router> */}
+ 
 
-]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    {/* <App/> */}
   </React.StrictMode>
 );
 
