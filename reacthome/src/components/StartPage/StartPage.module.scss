@@ -1,0 +1,96 @@
+$maincolor: #192f2d;
+$colorwhite: white;
+$colorborders: #24c5db42;
+
+@mixin styletext($fontS) {
+  font-family: "Neucha";
+  font-size: $fontS;
+  color: $colorwhite;
+}
+.StartPage {
+  &__wrapper {
+    // &__item{
+
+    // }
+    // .wrapper__item{
+
+    // }
+    margin: 0;
+    padding: 0;
+    height: 90vh;
+    width: 100vw;
+    background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  &__center_block {
+    width: 600px;
+    height: 250px;
+    border: 2px solid $colorborders;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+      118.88% 606.86% at 0% 0%,
+      rgba(36, 197, 219, 0.15) 0%,
+      rgba(36, 197, 219, 0) 100%
+    );
+    @include styletext(50px);
+  }
+  &__main_button {
+    height: 50px;
+    width: 300px;
+    border: 2px solid $colorborders;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+      118.88% 606.86% at 0% 0%,
+      rgba(36, 197, 219, 0.15) 0%,
+      rgba(36, 197, 219, 0) 100%
+    );
+    margin-top: 5vh;
+    text-decoration: none;
+  }
+  &__main_link_tittle {
+    color: $colorwhite;
+    text-decoration: none;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+  }
+  &__main_link {
+    text-decoration: none;
+  }
+  &__footer {
+    // font-family: 'Montserrat', sans-serif;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    color: $colorwhite;
+    height: 10vh;
+    width: 100vw;
+    background-color: $maincolor;
+    div {
+      /////вложенность
+      margin: 5vw;
+    }
+  }
+  &__logo_img {
+    font-size: 30px;
+  }
+}

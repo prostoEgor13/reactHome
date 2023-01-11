@@ -1,0 +1,21 @@
+@mixin styletext($fontS) {
+  font-family: "Neucha";
+  font-size: $fontS;
+  color: $colorwhite;
+}
+@mixin footer(){
+    &__footer {
+        // font-family: 'Montserrat', sans-serif;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        color: $colorwhite;
+        height: 10vh;
+        width: 100vw;
+        background-color: $maincolor;
+        div {
+          /////вложенность
+          margin: 5vw;
+        }
+      }
+}

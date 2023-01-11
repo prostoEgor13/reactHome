@@ -3,8 +3,8 @@ import Toys from './components/Toys/Toys';
 import TeeDec from './components/TreeDecoration/TreeDecoration';
 import App from './App';
 
-export const routes=[
-    {
+export const routes = [
+  {
     path: "/",
     element: <App />,
   },
@@ -13,7 +13,7 @@ export const routes=[
     element: <Start />,
   },
   {
-    path: "/Toys",
+    path: "/toys",
     element: <Toys />,
   },
   {
