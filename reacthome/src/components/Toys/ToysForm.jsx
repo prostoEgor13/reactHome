@@ -7,35 +7,36 @@ import start from "./img/star.png";
 import bell from "./img/bell.png";
 import bird from "./img/bird_toy.png";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const ToysForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={cn(css.Toys__main_settings)}>
-        <div className={cn(css.Toys__main_settings_sort)}>
+      <div className={cn(css.Toys__mainSettings)}>
+        <div className={cn(css.Toys__mainSettingsSort)}>
           <p>сортировать</p>
           <select name="" id="">
             <option value="">По возрастанию</option>
             <option value="">По убыванию</option>
           </select>
         </div>
-        <div className={cn(css.Toys__main_settings_categories)}>
+        <div className={cn(css.Toys__mainSettingsCategories)}>
           <p>категории</p>
           <div>
             <input type="checkbox" {...register("category")} />
             <p>Все</p>
           </div>
         </div>
-        <div className={cn(css.Toys__main_settings_forms)}>
+        <div className={cn(css.Toys__mainSettingsForms)}>
           <p>Форма</p>
-          <div className={cn(css.Toys__main_settings_forms_imges)}>
+          <div className={cn(css.Toys__mainSettingsFormsImges)}>
             <div>
               <img
                 src={bell}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
@@ -43,7 +44,7 @@ const ToysForm = () => {
               <img
                 src={ball}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
@@ -51,7 +52,7 @@ const ToysForm = () => {
               <img
                 src={pine}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
@@ -59,7 +60,7 @@ const ToysForm = () => {
               <img
                 src={start}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
@@ -67,7 +68,7 @@ const ToysForm = () => {
               <img
                 src={snow}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
@@ -75,78 +76,101 @@ const ToysForm = () => {
               <img
                 src={bird}
                 alt=""
-                className={cn(css.Toys__header_snow_img)}
+                className={cn(css.Toys__headerSnowImg)}
               />
               <p>колокол</p>
             </div>
           </div>
-          <div className={cn(css.Toys__main_settings_numb_of_copies)}>
+          <div className={cn(css.Toys__mainSettingsNumbOfCopies)}>
             <p>Колиичество экземпляров</p>
-            <input type="range" min={1940} max={2022} step={1} />
+            <input
+              type="range"
+              min={1940}
+              max={2022}
+              step={1}
+              {...register("category1")}
+            />
             <div>
               <p>1940</p>
               <p>2022</p>
             </div>
           </div>
-          <div className={cn(css.Toys__main_settings_numb_of_copies)}>
+          <div className={cn(css.Toys__mainSettingsNumbOfCopies)}>
             <p>Год приобретения</p>
-            <input type="range" min={1940} max={2022} step={1} />
+            <input
+              type="range"
+              min={1940}
+              max={2022}
+              step={1}
+              {...register("category2")}
+            />
             <div>
               <p>1940</p>
               <p>2022</p>
             </div>
           </div>
-          <div className={cn(css.Toys__main_settings_colors)}>
+          <div className={cn(css.Toys__mainSettingsColors)}>
             <p>Цвет</p>
             <div>
-              <input type="checkbox" className={cn(css.Toys__inp1)} />
               <input
                 type="checkbox"
-                className={cn(css.Toys__main_settings_colors_inp2)}
+                className={cn(css.Toys__inp1)}
+                {...register("category3")}
               />
               <input
                 type="checkbox"
-                className={cn(css.Toys__main_settings_colors_inp3)}
+                className={cn(css.Toys__mainSettingsColorsInp2)}
+                {...register("category4")}
               />
               <input
                 type="checkbox"
-                className={cn(css.Toys__main_settings_colors_inp4)}
+                className={cn(css.Toys__mainSettingsColorsInp3)}
+                {...register("category5")}
               />
               <input
                 type="checkbox"
-                className={cn(css.Toys__main_settings_colors_inp5)}
+                className={cn(css.Toys__mainSettingsColorsInp4)}
+                {...register("category6")}
+              />
+              <input
+                type="checkbox"
+                className={cn(css.Toys__mainSettingsColorsInp5)}
+                {...register("category7")}
               />
             </div>
           </div>
-          <div className={cn(css.Toys__main_settings_size)}>
+          <div className={cn(css.Toys__mainSettingsSize)}>
             <div>
               <p>Размер</p>
             </div>
             <div>
               <div>
-                <input type="checkbox" />
+                <input type="checkbox" {...register("category8")} />
                 <p>Большой</p>
               </div>
               <div>
-                <input type="checkbox" />
+                <input type="checkbox" {...register("category9")} />
                 <p>Средний</p>
               </div>
               <div>
-                <input type="checkbox" />
+                <input type="checkbox" {...register("category10")} />
                 <p>Маленький</p>
               </div>
             </div>
           </div>
-          <div className={cn(css.Toys__main_settings_favorite)}>
-            <input type="checkbox" />
+          <div className={cn(css.Toys__mainSettingsFavorite)}>
+            <input type="checkbox" {...register("category11")} />
             <p>Только любимые</p>
           </div>
-          <div className={cn(css.Toys__main_settings_buttons)}>
+          <div className={cn(css.Toys__mainSettingsButtons)}>
             <div>
               <button onClick={onSubmit}>Сбросить фильтры</button>
-              <button className={cn(css.Toys__main_settings_buttons_btn2)}>
+              <button className={cn(css.Toys__mainSettingsButtonsBtn2)}>
                 Сбросить настройки
               </button>
+              <Link to="/treeDicoration" className={cn(css.Toys__mainSettingsButtonsBtn2)}>
+                <p className={cn(css.Toys__mainSettingsBtnNext)}>next</p>
+              </Link>
             </div>
           </div>
         </div>

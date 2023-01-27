@@ -4,7 +4,6 @@ $maincolor: #192f2d;
 $colorwhite: white;
 
 @mixin mixfooter() {
-  // font-family: 'Montserrat', sans-serif;
   justify-content: space-between;
   display: flex;
   align-items: center;
@@ -15,7 +14,6 @@ $colorwhite: white;
   position: fixed;
 
   div {
-    /////вложенность
     margin: 5vw;
   }
 }
@@ -27,9 +25,7 @@ $colorwhite: white;
 @mixin colorinput($color) {
   background-color: $color;
 }
-// * {
-//   background-color: $maincolor;
-// }
+
 .Toys {
   &__wrapper {
     display: flex;
@@ -42,13 +38,13 @@ $colorwhite: white;
   &__main {
     height: 85vh;
     width: 90vw;
-    // background-color: yellow;
+
     overflow-y: auto;
   }
   &__footer {
     @include mixfooter();
   }
-  &__header_block {
+  &__headerBlock {
     position: relative;
     width: 90vw;
     height: 10vh;
@@ -66,7 +62,7 @@ $colorwhite: white;
       width: 35px;
     }
   }
-  &__header_input_block {
+  &__headerInputBlock {
     input {
       width: 250px;
       height: 35px;
@@ -82,10 +78,10 @@ $colorwhite: white;
       color: white;
     }
   }
-  &__header_tittle {
+  &__headerTittle {
     @include styletext(20px, "Neucha");
   }
-  &__main_settings_sort {
+  &__mainSettingsSort {
     display: flex;
     p {
       font-size: 30px;
@@ -104,12 +100,12 @@ $colorwhite: white;
       border-radius: 30px;
     }
   }
-  &__main_settings {
+  &__mainSettings {
     div {
       margin-top: 1vh;
     }
   }
-  &__main_settings_categories {
+  &__mainSettingsCategories {
     @include styletext(25px, "Neucha");
     display: flex;
     flex-direction: column;
@@ -125,10 +121,10 @@ $colorwhite: white;
       font-family: "Courier New", Courier, monospace;
     }
   }
-  &__main_settings_forms {
+  &__mainSettingsForms {
     @include styletext(20px, "Montserrat");
   }
-  &__main_settings_forms_imges {
+  &__mainSettingsFormsImges {
     display: flex;
     justify-content: space-around;
 
@@ -138,7 +134,7 @@ $colorwhite: white;
       width: 40px;
     }
   }
-  &__main_settings_numb_of_copies {
+  &__mainSettingsNumbOfCopies {
     div {
       display: flex;
       justify-content: space-between;
@@ -149,7 +145,7 @@ $colorwhite: white;
       background-color: antiquewhite;
     }
   }
-  &__main_settings_colors {
+  &__mainSettingsColors {
     position: relative;
     right: 50px;
     input {
@@ -162,7 +158,7 @@ $colorwhite: white;
       left: 50px;
     }
   }
-  &__main_settings_size {
+  &__mainSettingsSize {
     display: flex;
     flex-direction: column;
     input {
@@ -185,18 +181,18 @@ $colorwhite: white;
       }
     }
   }
-  &__main_settings_favorite {
+  &__mainSettingsFavorite {
     display: flex;
     input {
       height: 20px;
       width: 20px;
     }
     p {
-      margin-left:4px;
+      margin-left: 4px;
       font-size: 15px;
     }
   }
-  &__main_settings_buttons {
+  &__mainSettingsButtons {
     display: flex;
     button {
       text-align: center;
@@ -212,43 +208,43 @@ $colorwhite: white;
       color: white;
     }
   }
-  &__main_settings_buttons_btn2 {
+  &__mainSettingsButtonsBtn2 {
     position: relative;
     left: 2vw;
   }
-  &__main_cards {
+
+  &__mainCards {
     display: flex;
     flex-wrap: wrap;
-    min-width:700px;
-    gap:3.5vw;
+    min-width: 700px;
+    gap: 3.5vw;
     margin-left: 3.5vw;
   }
-  &__main_settings {
+  &__mainSettings {
     position: relative;
     top: 0vh;
     height: 75vh;
     width: 30vw;
     // background-color: antiquewhite;
   }
-  &__main_blocks {
+  &__mainBlocks {
     display: flex;
   }
 
-  &__main_card {
+  &__mainCard {
     height: 340px;
     width: 220px;
     background-color: rgba(255, 255, 255, 0.5);
     // margin-left: 3.5vw;
     margin-top: 20px;
-    border-radius:10px;
-    h3{
+    border-radius: 10px;
+    h3 {
       @include styletext(20px, "Neucha");
       margin-left: 1vw;
       margin-top: 1vh;
     }
   }
-  &__main_cards_line {
+  &__mainCardsLine {
     display: flex;
   }
- 
 }

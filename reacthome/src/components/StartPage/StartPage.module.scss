@@ -9,12 +9,6 @@ $colorborders: #24c5db42;
 }
 .StartPage {
   &__wrapper {
-    // &__item{
-
-    // }
-    // .wrapper__item{
-
-    // }
     margin: 0;
     padding: 0;
     height: 90vh;
@@ -33,7 +27,7 @@ $colorborders: #24c5db42;
     align-items: center;
    
   }
-  &__center_block {
+  &__centerBlock {
     width: 600px;
     height: 250px;
     border: 2px solid $colorborders;
@@ -49,7 +43,7 @@ $colorborders: #24c5db42;
     );
     @include styletext(50px);
   }
-  &__main_button {
+  &__mainButton {
     height: 50px;
     width: 300px;
     border: 2px solid $colorborders;
@@ -66,14 +60,14 @@ $colorborders: #24c5db42;
     margin-top: 5vh;
     text-decoration: none;
   }
-  &__main_link_tittle {
+  &__mainLinkTittle {
     color: $colorwhite;
     text-decoration: none;
     outline: none;
     font-family: "Montserrat", sans-serif;
     font-size: 25px;
   }
-  &__main_link {
+  &__mainLink {
     text-decoration: none;
   }
   &__footer {
@@ -93,4 +87,5 @@ $colorborders: #24c5db42;
   &__logo_img {
     font-size: 30px;
   }
+
 }

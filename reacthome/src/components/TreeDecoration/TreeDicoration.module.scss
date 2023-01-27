@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+$colorborders: #24c5db42;
+$maincolor: #192f2d;
+$colorwhite: white;
+
+@mixin mixfooter() {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  color: $colorwhite;
+  height: 10vh;
+  width: 100vw;
+  background-color: $maincolor;
+  position: fixed;
+
+  div {
+    margin: 5vw;
+  }
+}
+@mixin styletext($fonts, $fontfam) {
+  font-family: $fontfam;
+  font-size: $fonts;
+  color: $colorwhite;
+}
+@mixin colorinput($color) {
+  background-color: $color;
+}
+.TreeDicoration {
+  &__wrapper{
+    filter: brightness(40%);
+    margin: 0;
+    padding: 0;
+    height: 90vh;
+    width: 100vw;
+    background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash.jpg);
+
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__centerBlock{
+    height: 90vh;
+    width: 50vw;
+    background-image: url(./img/kam-idris-L9-sfN04jdk-unsplash.jpg);
+  }
+}

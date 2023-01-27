@@ -3,15 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Toys from './components/Toys/Toys';
-import TreeDecoration from './components/TreeDecoration/TreeDecoration';
-import {
-  Route,
-}
-  from "react-router-dom";
-import "./common/common.scss"
-import "./common/mixins.scss"
+import "./common/common.scss";
+import "./common/mixins.scss";
+import TreeDicoration from 'components/TreeDecoration/TreeDicoration';
 
 
 
@@ -23,6 +19,7 @@ root.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/toys' element={<Toys />} />
+        <Route path='/treeDicoration' element={<TreeDicoration />} />
       </Routes>
     </Router>
   </React.StrictMode>

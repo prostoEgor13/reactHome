@@ -47,6 +47,7 @@ module.exports = {
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
     'react/no-array-index-key': 'off',
     'import/order': 'off',
+    'react/self-closing-comp': 'off',
   },
   ignorePatterns: ['src/assets/*'],
 };

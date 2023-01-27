@@ -1,6 +1,6 @@
 import Start from './components/StartPage/StartPage';
 import Toys from './components/Toys/Toys';
-import TeeDec from './components/TreeDecoration/TreeDecoration';
+import TeeDec from './components/TreeDecoration/TreeDicoration';
 import App from './App';
 
 export const routes = [
