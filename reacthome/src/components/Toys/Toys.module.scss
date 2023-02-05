@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+$colorborders: #24c5db42;
+$maincolor: #192f2d;
+$colorwhite: white;
+
+@mixin mixfooter() {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  color: $colorwhite;
+  height: 10vh;
+  width: 100vw;
+  background-color: $maincolor;
+  position: fixed;
+
+  div {
+    margin: 5vw;
+  }
+}
+@mixin styletext($fonts, $fontfam) {
+  font-family: $fontfam;
+  font-size: $fonts;
+  color: $colorwhite;
+}
+@mixin colorinput($color) {
+  background-color: $color;
+}
+
+.Toys {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $maincolor;
+    height: 90vh;
+    width: 100vw;
+  }
+  &__main {
+    height: 85vh;
+    width: 90vw;
+
+    overflow-y: auto;
+  }
+  &__footer {
+    @include mixfooter();
+  }
+  &__headerBlock {
+    position: relative;
+    width: 90vw;
+    height: 10vh;
+    // background-color: aqua;
+    display: flex;
+    align-items: center;
+    div:nth-child(2n) {
+      margin-left: 5vw;
+    }
+    div:nth-child(3n) {
+      margin-left: 5vw;
+    }
+    img {
+      height: 35px;
+      width: 35px;
+    }
+  }
+  &__headerInputBlock {
+    position: relative;
+    left: 3vw;
+    input {
+      width: 250px;
+      height: 35px;
+      background: radial-gradient(
+        118.88% 606.86% at 0% 0%,
+        rgba(36, 197, 219, 0.15) 0%,
+        rgba(36, 197, 219, 0) 100%
+      );
+      border-radius: 30px;
+      border: 1px solid #24c5db;
+    }
+    input::-webkit-input-placeholder {
+      color: white;
+    }
+  }
+  &__headerTittle {
+    @include styletext(20px, "Neucha");
+    position: relative;
+    left: 1vw;
+  }
+  &__mainSettingsSort {
+    display: flex;
+    p {
+      font-size: 30px;
+      @include styletext(25px, "Neucha");
+    }
+    select {
+      position: relative;
+      left: 3vw;
+      width: 170px;
+      height: 30px;
+      background: radial-gradient(
+        118.88% 606.86% at 0% 0%,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(157, 243, 255, 0.2) 100%
+      );
+      border-radius: 30px;
+    }
+  }
+  &__mainSettings {
+    div {
+      margin-top: 2vh;
+    }
+  }
+  &__mainSettingsCategories {
+    @include styletext(25px, "Neucha");
+    display: flex;
+    flex-direction: column;
+    input {
+      height: 24px;
+      width: 24px;
+      background: #24c5db;
+      border-radius: 2px;
+    }
+    div {
+      display: flex;
+      font-size: 18px;
+      font-family: "Courier New", Courier, monospace;
+    }
+  }
+  &__mainSettingsForms {
+    @include styletext(20px, "Montserrat");
+  }
+  &__mainSettingsFormsImges {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+
+    @include styletext(10px, "Montserrat");
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  &__mainSettingsNumbOfCopies {
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+    input {
+      width: 30vw;
+      height: 2px;
+      background-color: antiquewhite;
+    }
+  }
+  &__mainSettingsColors {
+    position: relative;
+    right: 50px;
+    input {
+      margin-left: 50px;
+      height: 24px;
+      width: 24px;
+    }
+    p {
+      position: relative;
+      left: 50px;
+    }
+  }
+  &__mainSettingsSize {
+    display: flex;
+    flex-direction: column;
+    input {
+      height: 20px;
+      width: 20px;
+    }
+    p {
+      margin-left: 0.5vw;
+    }
+    div {
+      display: flex;
+      position: relative;
+      right: 10px;
+      div {
+        margin-left: 20px;
+        p {
+          margin-left: 4px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  &__mainSettingsFavorite {
+    display: flex;
+
+    input {
+      height: 20px;
+      width: 20px;
+      margin-top: 2vh;
+    }
+    p {
+      margin-left: 4px;
+      font-size: 15px;
+      margin-top: 2vh;
+    }
+  }
+  &__mainSettingsButtons {
+    display: flex;
+    button {
+      text-align: center;
+      width: 170px;
+      height: 30px;
+      background: radial-gradient(
+        118.88% 606.86% at 0% 0%,
+        rgba(36, 197, 219, 0.15) 0%,
+        rgba(36, 197, 219, 0) 100%
+      );
+      border-radius: 30px;
+      border: 1px solid #24c5db;
+      color: white;
+    }
+  }
+  &__mainSettingsButtonsBtn2 {
+    position: relative;
+    left: 2vw;
+  }
+
+  &__mainCards {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 700px;
+    gap: 3.5vw;
+    margin-left: 3.5vw;
+  }
+  &__mainSettings {
+    position: relative;
+    top: 0vh;
+    height: 75vh;
+    width: 30vw;
+    // background-color: antiquewhite;
+  }
+  &__mainBlocks {
+    display: flex;
+  }
+
+  &__mainCard {
+    height: 340px;
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.5);
+    // margin-left: 3.5vw;
+    margin-top: 20px;
+    border-radius: 10px;
+    h3 {
+      @include styletext(20px, "Neucha");
+      margin-left: 1vw;
+      margin-top: 1vh;
+    }
+  }
+  &__mainCardsLine {
+    display: flex;
+  }
+  &__mainSettingsBtnNext{
+    width:100px !important;
+    position: relative;
+    right:2vw;
+    top: 2vh;
+  }
+}
