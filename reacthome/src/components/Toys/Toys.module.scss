@@ -63,6 +63,8 @@ $colorwhite: white;
     }
   }
   &__headerInputBlock {
+    position: relative;
+    left: 3vw;
     input {
       width: 250px;
       height: 35px;
@@ -80,6 +82,8 @@ $colorwhite: white;
   }
   &__headerTittle {
     @include styletext(20px, "Neucha");
+    position: relative;
+    left: 1vw;
   }
   &__mainSettingsSort {
     display: flex;
@@ -102,7 +106,7 @@ $colorwhite: white;
   }
   &__mainSettings {
     div {
-      margin-top: 1vh;
+      margin-top: 2vh;
     }
   }
   &__mainSettingsCategories {
@@ -127,6 +131,7 @@ $colorwhite: white;
   &__mainSettingsFormsImges {
     display: flex;
     justify-content: space-around;
+    text-align: center;
 
     @include styletext(10px, "Montserrat");
     img {
@@ -183,13 +188,16 @@ $colorwhite: white;
   }
   &__mainSettingsFavorite {
     display: flex;
+
     input {
       height: 20px;
       width: 20px;
+      margin-top: 2vh;
     }
     p {
       margin-left: 4px;
       font-size: 15px;
+      margin-top: 2vh;
     }
   }
   &__mainSettingsButtons {
@@ -246,5 +254,11 @@ $colorwhite: white;
   }
   &__mainCardsLine {
     display: flex;
+  }
+  &__mainSettingsBtnNext{
+    width:100px !important;
+    position: relative;
+    right:2vw;
+    top: 2vh;
   }
 }

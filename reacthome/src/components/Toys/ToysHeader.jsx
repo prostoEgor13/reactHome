@@ -6,13 +6,13 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 
 const ToysHeader = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, } = useForm();
 
   const [, setSearch] = useSearchParams();
 
   const handleSearch = (event) => {
     setSearch({ search: event.target.value });
+  
   };
 
   return (
@@ -31,6 +31,7 @@ const ToysHeader = () => {
               placeholder="    Поиск"
               {...register("search")}
               onChange={handleSearch}
+             
             />
           </div>
         </form>

@@ -2,7 +2,10 @@
 $colorborders: #24c5db42;
 $maincolor: #192f2d;
 $colorwhite: white;
-
+* {
+  margin: 0;
+  padding: 0;
+}
 @mixin mixfooter() {
   justify-content: space-between;
   display: flex;
@@ -26,23 +29,270 @@ $colorwhite: white;
   background-color: $color;
 }
 .TreeDicoration {
-  &__wrapper{
-    filter: brightness(40%);
+  &__wrapper {
     margin: 0;
     padding: 0;
     height: 90vh;
     width: 100vw;
-    background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash.jpg);
-
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  &__centerBlock{
+  &__main {
+    // background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash.jpg);
+    background-size: cover;
+    // filter: brightness(40%);
+    width: 100vw;
+    display: flex;
+  }
+  &__chooseBlock {
+    background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash1.png);
+    filter: brightness(85%);
+    background-size:cover;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
     height: 90vh;
-    width: 50vw;
+    width: 22.5vw;
+    overflow-y: scroll;
+    // background-color: antiquewhite;
+  }
+  &__centralBlock {
+    z-index: 10;
+
+    height: 90vh;
+    width: 55vw;
     background-image: url(./img/kam-idris-L9-sfN04jdk-unsplash.jpg);
+    background-size: cover;
+  }
+
+  &__chooseBlockHeader {
+    position: relative;
+    top: 2vh;
+    display: flex;
+    div:nth-child(2n) {
+      position: relative;
+      right: 3vw;
+    }
+  }
+  &__chooseBlockHeaderVolume {
+    position: relative;
+    right: 7vw;
+  }
+  &__chooseBlockChooseTree {
+    position: relative;
+    top: 3vh;
+  }
+  &__chooseBlockChooseTrees {
+    position: relative;
+    top: 3vh;
+  }
+  &__chooseBlockChooseTreeHeader {
+    @include styletext(10px, "Neucha");
+    margin-top: 2vh;
+  }
+  &__chooseBlockChooseTreesLineOne {
+    display: flex;
+  }
+  &__chooseBlockChooseTreesLeftTree {
+    position: relative;
+    // left: -2.5vw;
+    height: 135px;
+    width: 135px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0.5;
+  }
+  &__chooseBlockChooseTreesLineTwo {
+    display: flex;
+    position: relative;
+    top: 2vh;
+  }
+  &__chooseBlockChooseTreesRightTree {
+    position: relative;
+    left: 0.5vw;
+    height: 135px;
+    width: 135px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0.5;
+  }
+  &__chooseBlockChooseBack {
+    display: flex;
+    flex-direction: column;
+  }
+  &__chooseBlockChooseBackHeader {
+    @include styletext(10px, "Neucha");
+
+    margin-top: 8vh;
+  }
+  &__chooseBlockChooseBackLineOne {
+    display: flex;
+    margin-top: 2vh;
+    margin-left: -0.5vw;
+    // flex-wrap: wrap;
+    div {
+      display: flex;
+      height: 65px;
+      width: 65px;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #ffffff;
+      opacity: 0.5;
+      margin-left: 0.4vw;
+    }
+  }
+  &__chooseBlockChooseBackLineTwo {
+    display: flex;
+    margin-left: -0.5vw;
+    margin-top: 2vh;
+    div {
+      display: flex;
+      height: 65px;
+      width: 65px;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #ffffff;
+      opacity: 0.5;
+      margin-left: 0.4vw;
+    }
+  }
+  &__chooseBlockChooseHeaderGarland {
+    @include styletext(10px, "Neucha");
+    margin-top: 5vh;
+  }
+  &__chooseBlockChooseGarland {
+    margin-top: 3vh;
+    width: 20vw;
+    img {
+      margin-top: 2vh;
+      width: 20vw;
+    }
+  }
+  &__chooseBlockButtons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+    margin-left: -1vw;
+    padding-bottom: 5vh;
+    button {
+      text-align: center;
+      width: 120px;
+      height: 30px;
+      background: radial-gradient(
+        118.88% 606.86% at 0% 0%,
+        rgba(36, 197, 219, 0.15) 0%,
+        rgba(36, 197, 219, 0) 100%
+      );
+      border-radius: 30px;
+      border: 1px solid #24c5db;
+      color: white;
+    }
+    button:nth-child(1n) {
+      position: relative;
+      left: 0vw;
+    }
+    button:nth-child(2n) {
+      position: relative;
+      left: 1vw;
+    }
+  }
+  &__toysBlock {
+    background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash2.png);
+    filter: brightness(85%);
+   
+    background-size:cover;
+    display: flex;
+    flex-direction: column;
+    // justify-self:center;
+    align-items: center;
+    height: 90vh;
+    width: 22.5vw;
+    background-color: rgba(122, 91, 51, 0);
+    position: relative;
+    // top: 5vh;
+    overflow-y: scroll;
+  }
+  &__toysBlockLine {
+    display: flex;
+
+    margin-top: 1vh;
+    div {
+      display: flex;
+      height: 65px;
+      width: 65px;
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #ffffff;
+      opacity: 0.5;
+      margin-left: 0.4vw;
+    }
+  }
+  &__toysBlockHeader {
+    @include styletext(10px, "Neucha");
+    margin-top: 2vh;
+    position: relative;
+    right: 7vw;
+  }
+  &__toysBlockHeaderdone {
+    @include styletext(10px, "Neucha");
+    margin-top: 5vh;
+    position: relative;
+    right: 4vw;
+  }
+  &__toysBlockLineOne {
+    display: flex;
+    margin-top: 2vh;
+    margin-left: -0.5vw;
+    // flex-wrap: wrap;
+    div {
+      display: flex;
+
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #ffffff;
+      opacity: 0.5;
+      margin-left: 0.4vw;
+    }
+  }
+  &__toysBlockLineTwo {
+    display: flex;
+    margin-left: -0.5vw;
+    margin-top: 2vh;
+    div {
+      display: flex;
+
+      border: 1px solid #ffffff;
+      border-radius: 10px;
+      background-color: #ffffff;
+      opacity: 0.5;
+      margin-left: 0.4vw;
+    }
+  }
+  &__toysBlockLeftTree {
+    position: relative;
+    // left: -0.5vw;
+    height: 135px;
+    width: 135px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0.5;
+  }
+
+  &__toysBlockRightTree {
+    position: relative;
+    left: 0.5vw;
+    height: 135px;
+    width: 135px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0.5;
   }
 }

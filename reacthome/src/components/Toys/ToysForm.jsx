@@ -7,11 +7,33 @@ import start from "./img/star.png";
 import bell from "./img/bell.png";
 import bird from "./img/bird_toy.png";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { filterLabels } from "./utils";
 
 const ToysForm = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+  const [, setSearch] = useSearchParams();
+
+  const handleCheckboxClick = (event, fieldLabel) => {
+    setSearch({ [fieldLabel]: event.target.checked });
+    console.dir(event.target);
+  };
+
+  const handleLabelClick = (event, fieldLabel) => {
+    if (event.target.checked) {
+      setSearch({ [fieldLabel]: event.target.name });
+    } else {
+      setSearch({ [fieldLabel]: "" });
+    }
+
+    console.dir(event.target);
+  };
+
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(css.Toys__mainSettings)}>
@@ -25,7 +47,7 @@ const ToysForm = () => {
         <div className={cn(css.Toys__mainSettingsCategories)}>
           <p>категории</p>
           <div>
-            <input type="checkbox" {...register("category")} />
+            <input type="checkbox" {...register(filterLabels.category)} />
             <p>Все</p>
           </div>
         </div>
@@ -33,52 +55,28 @@ const ToysForm = () => {
           <p>Форма</p>
           <div className={cn(css.Toys__mainSettingsFormsImges)}>
             <div>
-              <img
-                src={bell}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
+              <img src={bell} alt="" className={cn(css.Toys__headerSnowImg)} />
               <p>колокол</p>
             </div>
             <div>
-              <img
-                src={ball}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
-              <p>колокол</p>
+              <img src={ball} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <p>шар</p>
             </div>
             <div>
-              <img
-                src={pine}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
-              <p>колокол</p>
+              <img src={pine} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <p>шишка</p>
             </div>
             <div>
-              <img
-                src={start}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
-              <p>колокол</p>
+              <img src={start} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <p>звезда</p>
             </div>
             <div>
-              <img
-                src={snow}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
-              <p>колокол</p>
+              <img src={snow} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <p>снежинка</p>
             </div>
             <div>
-              <img
-                src={bird}
-                alt=""
-                className={cn(css.Toys__headerSnowImg)}
-              />
-              <p>колокол</p>
+              <img src={bird} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <p>фигурка</p>
             </div>
           </div>
           <div className={cn(css.Toys__mainSettingsNumbOfCopies)}>
@@ -112,30 +110,49 @@ const ToysForm = () => {
           <div className={cn(css.Toys__mainSettingsColors)}>
             <p>Цвет</p>
             <div>
-              <input
-                type="checkbox"
-                className={cn(css.Toys__inp1)}
-                {...register("category3")}
-              />
+              <label>
+                green
+                <input
+                  type="checkbox"
+                  className={cn(css.Toys__inp1)}
+                  {...register(filterLabels.colors.green)}
+                  onChange={(event) =>
+                    handleLabelClick(event, filterLabels.color)
+                  }
+                />
+              </label>
+
               <input
                 type="checkbox"
                 className={cn(css.Toys__mainSettingsColorsInp2)}
-                {...register("category4")}
+                {...register(filterLabels.colors.yellow)}
+                onChange={(event) =>
+                  handleCheckboxClick(event, filterLabels.color)
+                }
               />
               <input
                 type="checkbox"
                 className={cn(css.Toys__mainSettingsColorsInp3)}
-                {...register("category5")}
+                {...register(filterLabels.colors.pink)}
+                onChange={(event) =>
+                  handleCheckboxClick(event, filterLabels.color)
+                }
               />
               <input
                 type="checkbox"
                 className={cn(css.Toys__mainSettingsColorsInp4)}
-                {...register("category6")}
+                {...register(filterLabels.colors.purple)}
+                onChange={(event) =>
+                  handleCheckboxClick(event, filterLabels.color)
+                }
               />
               <input
                 type="checkbox"
                 className={cn(css.Toys__mainSettingsColorsInp5)}
-                {...register("category7")}
+                {...register(filterLabels.colors.red)}
+                onChange={(event) =>
+                  handleCheckboxClick(event, filterLabels.color)
+                }
               />
             </div>
           </div>
@@ -159,7 +176,13 @@ const ToysForm = () => {
             </div>
           </div>
           <div className={cn(css.Toys__mainSettingsFavorite)}>
-            <input type="checkbox" {...register("category11")} />
+            <input
+              type="checkbox"
+              {...register(filterLabels.onlyFavourites)}
+              onChange={(event) =>
+                handleCheckboxClick(event, filterLabels.onlyFavourites)
+              }
+            />
             <p>Только любимые</p>
           </div>
           <div className={cn(css.Toys__mainSettingsButtons)}>
@@ -168,8 +191,13 @@ const ToysForm = () => {
               <button className={cn(css.Toys__mainSettingsButtonsBtn2)}>
                 Сбросить настройки
               </button>
-              <Link to="/treeDicoration" className={cn(css.Toys__mainSettingsButtonsBtn2)}>
-                <p className={cn(css.Toys__mainSettingsBtnNext)}>next</p>
+              <Link
+                to="/treeDicoration"
+                className={cn(css.Toys__mainSettingsButtonsBtn2)}
+              >
+                <button className={cn(css.Toys__mainSettingsBtnNext)}>
+                  next
+                </button>
               </Link>
             </div>
           </div>
