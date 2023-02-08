@@ -237,13 +237,13 @@ $colorwhite: white;
     @include styletext(10px, "Neucha");
     margin-top: 2vh;
     position: relative;
-    right: 7vw;
+   left: 0.5vw;
   }
   &__toysBlockHeaderdone {
     @include styletext(10px, "Neucha");
     margin-top: 5vh;
     position: relative;
-    right: 4vw;
+    
   }
   &__toysBlockLineOne {
     display: flex;
