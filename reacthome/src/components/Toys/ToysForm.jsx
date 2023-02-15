@@ -12,38 +12,36 @@ import { filterLabels } from "./utils";
 
 const ToysForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [, setSearch] = useSearchParams();
+  const [search, setSearch] = useSearchParams();
 
+  const updateParams = (name, value) => {
+    search.set(name, value);
+    setSearch(search);
+  };
 
   const handleImgClick = (event, fieldLabel) => {
-    setSearch({ [fieldLabel]: event.target.name });
+    updateParams(fieldLabel, event.target.name);
   };
 
   const handleCheckboxClick = (event, fieldLabel) => {
-    setSearch({ [fieldLabel]: event.target.checked });
-    console.dir(event.target);
+    updateParams(fieldLabel, event.target.checked);
   };
 
   const handleLabelClick = (event, fieldLabel) => {
     if (event.target.checked) {
-      setSearch({ [fieldLabel]: event.target.name });
+      updateParams(fieldLabel, event.target.name);
     } else {
-      setSearch({ [fieldLabel]: "" });
+      updateParams(fieldLabel, "");
     }
-
-    console.dir(event.target);
-  };
-
-  const onSubmit = (data, fieldLabel) => {
-    if (reset()) {
-      setSearch({ [fieldLabel]: "" });
-    }
-    console.log(data);
-    // reset();
   };
   const handleValueClick = (event, fieldLabel) => {
-    setSearch({ [fieldLabel]: event.target.value });
+    updateParams(fieldLabel, event.target.value);
   };
+  const handleReset = () => {
+    reset();
+    setSearch({});
+  };
+  const onSubmit = () => {};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -276,7 +274,7 @@ const ToysForm = () => {
           </div>
           <div className={cn(css.Toys__mainSettingsButtons)}>
             <div>
-              <button onClick={onSubmit}>Сбросить фильтры</button>
+              <button onClick={handleReset}>Сбросить фильтры</button>
               <button className={cn(css.Toys__mainSettingsButtonsBtn2)}>
                 Сбросить настройки
               </button>

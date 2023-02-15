@@ -8,8 +8,14 @@ import garland2 from "../Toys/img/Garland_2.png";
 import garland3 from "../Toys/img/Garland_3.png";
 import TreeDicorationToys from "./TreeDicorationToys";
 import TreeDicorationFinished from "./TreeDicorationFinished";
+// import toys from "../Toys/constants";
+import toys from "./arrayFnished";
+import useToysFilter from "../Toys/useToysFilter";
+// import arrayFnished from "./arrayFnished";
+// import useFinishedFilter from "./useFinishedFilter";
 
 const TreeDicoration = () => {
+  const filterToys = useToysFilter(toys);
   return (
     <>
       <div className={cn(css.TreeDicoration__wrapper)}>
@@ -114,7 +120,7 @@ const TreeDicoration = () => {
           <div className={cn(css.TreeDicoration__centralBlock)}></div>
           <div className={cn(css.TreeDicoration__toysBlock)}>
             <TreeDicorationToys />
-            <TreeDicorationFinished />
+            <TreeDicorationFinished cards={filterToys} />
           </div>
         </div>
       </div>

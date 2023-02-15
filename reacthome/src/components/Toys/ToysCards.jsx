@@ -1,10 +1,9 @@
 import css from "./Toys.module.scss";
 import cn from "classnames";
+import PropTypes from "prop-types";
 
-
-
-const ToysCards = ({cards}) => {
-  const toysCards = cards.map((toy, index) => {
+const ToysCards = ({ cards }) => {
+  const toysCard = cards.map((toy, index) => {
     return (
       <div className={cn(css.Toys__mainCard)} key={index}>
         <div className={cn(css.Toys__mainCardName)}>
@@ -15,6 +14,9 @@ const ToysCards = ({cards}) => {
       </div>
     );
   });
-  return <div className={cn(css.Toys__mainCards)}>{toysCards}</div>;
+  return <div className={cn(css.Toys__mainCards)}>{toysCard}</div>;
+};
+ToysCards.propTypes = {
+  cards: PropTypes.array,
 };
 export default ToysCards;
