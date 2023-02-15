@@ -12,27 +12,36 @@ import { filterLabels } from "./utils";
 
 const ToysForm = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [, setSearch] = useSearchParams();
+  const [search, setSearch] = useSearchParams();
+
+  const updateParams = (name, value) => {
+    search.set(name, value);
+    setSearch(search);
+  };
+
+  const handleImgClick = (event, fieldLabel) => {
+    updateParams(fieldLabel, event.target.name);
+  };
 
   const handleCheckboxClick = (event, fieldLabel) => {
-    setSearch({ [fieldLabel]: event.target.checked });
-    console.dir(event.target);
+    updateParams(fieldLabel, event.target.checked);
   };
 
   const handleLabelClick = (event, fieldLabel) => {
     if (event.target.checked) {
-      setSearch({ [fieldLabel]: event.target.name });
+      updateParams(fieldLabel, event.target.name);
     } else {
-      setSearch({ [fieldLabel]: "" });
+      updateParams(fieldLabel, "");
     }
-
-    console.dir(event.target);
   };
-
-  const onSubmit = (data) => {
-    console.log(data);
+  const handleValueClick = (event, fieldLabel) => {
+    updateParams(fieldLabel, event.target.value);
+  };
+  const handleReset = () => {
     reset();
+    setSearch({});
   };
+  const onSubmit = () => {};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -47,7 +56,13 @@ const ToysForm = () => {
         <div className={cn(css.Toys__mainSettingsCategories)}>
           <p>категории</p>
           <div>
-            <input type="checkbox" {...register(filterLabels.category)} />
+            <input
+              type="checkbox"
+              {...register(filterLabels.selectAll)}
+              onChange={(event) =>
+                handleCheckboxClick(event, filterLabels.selectAll)
+              }
+            />
             <p>Все</p>
           </div>
         </div>
@@ -55,27 +70,75 @@ const ToysForm = () => {
           <p>Форма</p>
           <div className={cn(css.Toys__mainSettingsFormsImges)}>
             <div>
-              <img src={bell} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={bell}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.bell)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>колокол</p>
             </div>
             <div>
-              <img src={ball} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={ball}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.ball)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>шар</p>
             </div>
             <div>
-              <img src={pine} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={pine}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.cone)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>шишка</p>
             </div>
             <div>
-              <img src={start} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={start}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.star)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>звезда</p>
             </div>
             <div>
-              <img src={snow} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={snow}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.snowflake)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>снежинка</p>
             </div>
             <div>
-              <img src={bird} alt="" className={cn(css.Toys__headerSnowImg)} />
+              <img
+                src={bird}
+                alt=""
+                className={cn(css.Toys__headerSnowImg)}
+                {...register(filterLabels.toys.figure)}
+                onClick={(event) => {
+                  handleImgClick(event, filterLabels.toy);
+                }}
+              />
               <p>фигурка</p>
             </div>
           </div>
@@ -83,14 +146,17 @@ const ToysForm = () => {
             <p>Колиичество экземпляров</p>
             <input
               type="range"
-              min={1940}
-              max={2022}
+              min={0}
+              max={15}
               step={1}
-              {...register("category1")}
+              {...register(filterLabels.values.numberOfCopies)}
+              onChange={(event) => {
+                handleValueClick(event, filterLabels.value);
+              }}
             />
             <div>
-              <p>1940</p>
-              <p>2022</p>
+              <p>0</p>
+              <p>15</p>
             </div>
           </div>
           <div className={cn(css.Toys__mainSettingsNumbOfCopies)}>
@@ -100,7 +166,10 @@ const ToysForm = () => {
               min={1940}
               max={2022}
               step={1}
-              {...register("category2")}
+              {...register(filterLabels.values.year)}
+              onChange={(event) => {
+                handleValueClick(event, filterLabels.value);
+              }}
             />
             <div>
               <p>1940</p>
@@ -127,7 +196,7 @@ const ToysForm = () => {
                 className={cn(css.Toys__mainSettingsColorsInp2)}
                 {...register(filterLabels.colors.yellow)}
                 onChange={(event) =>
-                  handleCheckboxClick(event, filterLabels.color)
+                  handleLabelClick(event, filterLabels.color)
                 }
               />
               <input
@@ -135,7 +204,7 @@ const ToysForm = () => {
                 className={cn(css.Toys__mainSettingsColorsInp3)}
                 {...register(filterLabels.colors.pink)}
                 onChange={(event) =>
-                  handleCheckboxClick(event, filterLabels.color)
+                  handleLabelClick(event, filterLabels.color)
                 }
               />
               <input
@@ -143,7 +212,7 @@ const ToysForm = () => {
                 className={cn(css.Toys__mainSettingsColorsInp4)}
                 {...register(filterLabels.colors.purple)}
                 onChange={(event) =>
-                  handleCheckboxClick(event, filterLabels.color)
+                  handleLabelClick(event, filterLabels.color)
                 }
               />
               <input
@@ -151,7 +220,7 @@ const ToysForm = () => {
                 className={cn(css.Toys__mainSettingsColorsInp5)}
                 {...register(filterLabels.colors.red)}
                 onChange={(event) =>
-                  handleCheckboxClick(event, filterLabels.color)
+                  handleLabelClick(event, filterLabels.color)
                 }
               />
             </div>
@@ -162,15 +231,33 @@ const ToysForm = () => {
             </div>
             <div>
               <div>
-                <input type="checkbox" {...register("category8")} />
+                <input
+                  type="checkbox"
+                  {...register(filterLabels.sizes.large)}
+                  onChange={(event) =>
+                    handleLabelClick(event, filterLabels.size)
+                  }
+                />
                 <p>Большой</p>
               </div>
               <div>
-                <input type="checkbox" {...register("category9")} />
+                <input
+                  type="checkbox"
+                  {...register(filterLabels.sizes.medium)}
+                  onChange={(event) =>
+                    handleLabelClick(event, filterLabels.size)
+                  }
+                />
                 <p>Средний</p>
               </div>
               <div>
-                <input type="checkbox" {...register("category10")} />
+                <input
+                  type="checkbox"
+                  {...register(filterLabels.sizes.small)}
+                  onChange={(event) =>
+                    handleLabelClick(event, filterLabels.size)
+                  }
+                />
                 <p>Маленький</p>
               </div>
             </div>
@@ -187,7 +274,7 @@ const ToysForm = () => {
           </div>
           <div className={cn(css.Toys__mainSettingsButtons)}>
             <div>
-              <button onClick={onSubmit}>Сбросить фильтры</button>
+              <button onClick={handleReset}>Сбросить фильтры</button>
               <button className={cn(css.Toys__mainSettingsButtonsBtn2)}>
                 Сбросить настройки
               </button>

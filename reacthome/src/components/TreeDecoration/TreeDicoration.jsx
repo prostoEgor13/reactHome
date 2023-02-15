@@ -6,8 +6,16 @@ import snow from "../Toys/img/noun_Snowflake_4336155 1.png";
 import garland1 from "../Toys/img/Garland_1.png";
 import garland2 from "../Toys/img/Garland_2.png";
 import garland3 from "../Toys/img/Garland_3.png";
+import TreeDicorationToys from "./TreeDicorationToys";
+import TreeDicorationFinished from "./TreeDicorationFinished";
+// import toys from "../Toys/constants";
+import toys from "./arrayFnished";
+import useToysFilter from "../Toys/useToysFilter";
+// import arrayFnished from "./arrayFnished";
+// import useFinishedFilter from "./useFinishedFilter";
 
 const TreeDicoration = () => {
+  const filterToys = useToysFilter(toys);
   return (
     <>
       <div className={cn(css.TreeDicoration__wrapper)}>
@@ -111,63 +119,8 @@ const TreeDicoration = () => {
           </div>
           <div className={cn(css.TreeDicoration__centralBlock)}></div>
           <div className={cn(css.TreeDicoration__toysBlock)}>
-            <div className={cn(css.TreeDicoration__toysBlockHeader)}>
-              <h1>ИГРУШКИ</h1>
-            </div>
-            <div className="">
-              <div className={cn(css.TreeDicoration__toysBlockLine)}>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-              </div>
-              <div className={cn(css.TreeDicoration__toysBlockLine)}>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-              </div>
-              <div className={cn(css.TreeDicoration__toysBlockLine)}>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-              </div>
-              <div className={cn(css.TreeDicoration__toysBlockLine)}>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-              </div>
-              <div className={cn(css.TreeDicoration__toysBlockLine)}>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-                <div className=""></div>
-              </div>
-            </div>
-            <div className={cn(css.TreeDicoration__toysBlockHeaderdone)}>
-              <h1>ВЫ УЖЕ НАРЯДИЛИ</h1>
-            </div>
-            <div className={cn(css.TreeDicoration__toysBlockFinished)}>
-              <div className={cn(css.TreeDicoration__toysBlockLineOne)}>
-                <div
-                  className={cn(css.TreeDicoration__toysBlockLeftTree)}
-                ></div>
-                <div
-                  className={cn(css.TreeDicoration__toysBlockRightTree)}
-                ></div>
-              </div>
-
-              <div className={cn(css.TreeDicoration__toysBlockLineTwo)}>
-                <div
-                  className={cn(css.TreeDicoration__toysBlockLeftTree)}
-                ></div>
-                <div
-                  className={cn(css.TreeDicoration__toysBlockRightTree)}
-                ></div>
-              </div>
-            </div>
+            <TreeDicorationToys />
+            <TreeDicorationFinished cards={filterToys} />
           </div>
         </div>
       </div>

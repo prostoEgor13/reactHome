@@ -50,7 +50,7 @@ $colorwhite: white;
   &__chooseBlock {
     background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash1.png);
     filter: brightness(85%);
-    background-size:cover;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     // justify-content: center;
@@ -205,8 +205,8 @@ $colorwhite: white;
   &__toysBlock {
     background-image: url(./img/annie-spratt-zh7GEuORbUw-unsplash2.png);
     filter: brightness(85%);
-   
-    background-size:cover;
+
+    background-size: cover;
     display: flex;
     flex-direction: column;
     // justify-self:center;
@@ -237,62 +237,36 @@ $colorwhite: white;
     @include styletext(10px, "Neucha");
     margin-top: 2vh;
     position: relative;
-    right: 7vw;
+    left: 0.5vw;
   }
   &__toysBlockHeaderdone {
     @include styletext(10px, "Neucha");
     margin-top: 5vh;
     position: relative;
-    right: 4vw;
+    margin-left: 2vw;
   }
-  &__toysBlockLineOne {
+  &__toysBlockFinished {
     display: flex;
-    margin-top: 2vh;
-    margin-left: -0.5vw;
-    // flex-wrap: wrap;
-    div {
-      display: flex;
-
-      border: 1px solid #ffffff;
-      border-radius: 10px;
-      background-color: #ffffff;
-      opacity: 0.5;
-      margin-left: 0.4vw;
-    }
+    flex-direction: column;
   }
-  &__toysBlockLineTwo {
+  &__toysMainBlockFinished {
     display: flex;
-    margin-left: -0.5vw;
-    margin-top: 2vh;
-    div {
-      display: flex;
-
-      border: 1px solid #ffffff;
-      border-radius: 10px;
-      background-color: #ffffff;
-      opacity: 0.5;
-      margin-left: 0.4vw;
-    }
+    flex-wrap: wrap;
+    margin-top: 3vh;
   }
-  &__toysBlockLeftTree {
-    position: relative;
-    // left: -0.5vw;
+  &__toysMainBlockFinished {
     height: 135px;
     width: 135px;
     border: 1px solid #ffffff;
     border-radius: 10px;
     background-color: #ffffff;
     opacity: 0.5;
-  }
-
-  &__toysBlockRightTree {
-    position: relative;
-    left: 0.5vw;
-    height: 135px;
-    width: 135px;
-    border: 1px solid #ffffff;
-    border-radius: 10px;
     background-color: #ffffff;
-    opacity: 0.5;
+  }
+  &__toysCardBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
   }
 }
