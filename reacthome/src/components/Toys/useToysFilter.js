@@ -1,28 +1,40 @@
 import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
+import { getToys } from "store/toys/selectors"
+import { useSelector, useDispatch } from "react-redux";
+import { toysActions } from "store/toys";
 
 const isParamsExist = (params) => {
     return params !== null
 }
 
-const useToysFilter = (toysArray) => {
+const useToysFilter = () => {
+    const dispatch = useDispatch();
+    const toysArray = useSelector(getToys)
     const [search] = useSearchParams();
     const [favorite] = useSearchParams();
     const searchParams = search.get("search");
     const favoriteParams = favorite.get("favorite");
-    console.log(searchParams);
+    console.log();
+
     return useMemo(
         () => {
-            if (isParamsExist) {
-                const fiteredBySearch = toysArray.filter((toy) => toy.name.includes(searchParams))
-                return isParamsExist(searchParams) ? fiteredBySearch : toysArray;
+            let fiteredBySearch = []
+            let fiteredByfavorite = []
+            if (isParamsExist(searchParams)) {
+                fiteredBySearch = toysArray.filter((toy) => toy.name.includes(searchParams))
+                console.log(fiteredBySearch);
+                // return isParamsExist(searchParams) ? fiteredBySearch : toysArray;
             }
 
-            if (isParamsExist) {
-                const fiteredByfavorite = toysArray.filter((toy) => toy.favorite.includes(favoriteParams))
-                return isParamsExist(favoriteParams) ? fiteredByfavorite : toysArray
+            if (isParamsExist(favoriteParams)) {
+                fiteredByfavorite = toysArray.filter((toy) => toy.favorite === Boolean(favoriteParams))
+                console.log(fiteredByfavorite);
+                // return isParamsExist(favoriteParams) ? fiteredByfavorite : toysArray
             }
-            return []
+            const final = [...fiteredBySearch, ...fiteredByfavorite];
+            dispatch(toysActions.setToys(final.length === 0 ? toysArray : final));
+
         },
         [searchParams, favoriteParams]
 

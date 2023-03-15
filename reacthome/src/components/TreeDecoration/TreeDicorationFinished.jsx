@@ -1,14 +1,22 @@
 import css from "./TreeDicoration.module.scss";
 import cn from "classnames";
 import PropTypes from "prop-types";
+// import pic from "./img/kam-idris-L9-sfN04jdk-unsplash.jpg";
 
-const TreeDicorationFinished = ({ cards }) => {
+const TreeDicorationFinished = ({ cards, title, isSmall = false }) => {
   const toysCards = cards.map((toy, index) => {
     return (
       <div className={cn(css.TreeDicoration__toysBlockFinished)} key={index}>
-        <div className={cn(css.TreeDicoration__toysMainBlockFinished)}>
+        <div
+          className={
+            isSmall
+              ? css.TreeDicoration__toysMainBlockFinishedSmall
+              : css.TreeDicoration__toysMainBlockFinished
+          }
+        >
           <div className={cn(css.TreeDicoration__toysMinBlock)}>
-            <h3>{toy.img}</h3>
+            <h3>{toy.year}</h3>
+            {/* <img src={pic} alt="" /> */}
           </div>
         </div>
       </div>
@@ -18,7 +26,7 @@ const TreeDicorationFinished = ({ cards }) => {
   return (
     <div>
       <div className={cn(css.TreeDicoration__toysBlockHeaderdone)}>
-        <h1>ВЫ НАРЯДИЛИ</h1>
+        <h1>{title}</h1>
       </div>
       <div className={cn(css.TreeDicoration__toysCardBlock)}>{toysCards}</div>
     </div>
@@ -26,5 +34,8 @@ const TreeDicorationFinished = ({ cards }) => {
 };
 TreeDicorationFinished.propTypes = {
   cards: PropTypes.array,
+  isSmall: PropTypes.bool,
+  title: PropTypes.string,
 };
+
 export default TreeDicorationFinished;

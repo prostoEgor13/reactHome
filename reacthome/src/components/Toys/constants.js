@@ -8,7 +8,7 @@ const toys = [
         shape: 'шар',
         color: 'желтый',
         size: 'большой',
-        favorite: false,
+        favorite: true,
     },
     {
         num: '2',
@@ -38,7 +38,7 @@ const toys = [
         shape: 'фигурка',
         color: 'красный',
         size: 'большой',
-        favorite: false,
+        favorite: true,
     },
     {
         num: '5',

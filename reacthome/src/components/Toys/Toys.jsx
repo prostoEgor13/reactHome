@@ -6,9 +6,18 @@ import ToysCards from "./ToysCards";
 import Footer from "../Footer";
 import toys from "./constants";
 import useToysFilter from "./useToysFilter";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toysActions } from "store/toys/index";
+import { getToys } from "store/toys/selectors";
 
 const Toys = () => {
-  const filterToys = useToysFilter(toys);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(toysActions.setToys(toys));
+  }, []);
+  useToysFilter();
+  const filterToys = useSelector(getToys);
   return (
     <>
       <div className={cn(css.Toys__wrapper)}>

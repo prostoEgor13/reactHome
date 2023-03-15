@@ -10,7 +10,7 @@ const arrayFnished = [
         color: 'желтый',
         size: 'большой',
         favorite: false,
-
+        img:"./Volumes/том/reacthome/reacthome/src/components/TreeDecoration/img/annie-spratt-zh7GEuORbUw-unsplash.jpg",
     },
     {
         num: '2',

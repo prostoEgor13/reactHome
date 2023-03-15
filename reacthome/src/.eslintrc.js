@@ -23,6 +23,7 @@ module.exports = {
   },
   plugins: [],
   rules: {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     'arrow-body-style': 'off',
     'react/function-component-definition': 'off',
     'jsx-a11y/anchor-is-valid': 'off',

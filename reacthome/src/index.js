@@ -8,6 +8,11 @@ import Toys from './components/Toys/Toys';
 import "./common/common.scss";
 import "./common/mixins.scss";
 import TreeDicoration from 'components/TreeDecoration/TreeDicoration';
+import { Provider } from 'react-redux';
+import { store } from 'store';
+
+
+
 
 
 
@@ -15,14 +20,16 @@ import TreeDicoration from 'components/TreeDecoration/TreeDicoration';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/toys' element={<Toys />} />
-        <Route path='/treeDicoration' element={<TreeDicoration />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<App />} />
+          <Route path='/toys' element={<Toys />} />
+          <Route path='/treeDicoration' element={<TreeDicoration />} />
+        </Routes>
+      </Router>
+    </Provider>
+  </React.StrictMode >
 );
 
 // If you want to start measuring performance in your app, pass a function

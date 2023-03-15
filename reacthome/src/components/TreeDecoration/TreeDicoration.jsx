@@ -6,16 +6,18 @@ import snow from "../Toys/img/noun_Snowflake_4336155 1.png";
 import garland1 from "../Toys/img/Garland_1.png";
 import garland2 from "../Toys/img/Garland_2.png";
 import garland3 from "../Toys/img/Garland_3.png";
-import TreeDicorationToys from "./TreeDicorationToys";
+import { useSelector } from "react-redux";
 import TreeDicorationFinished from "./TreeDicorationFinished";
+// import ChooseTree from "./ChooseTree";
 // import toys from "../Toys/constants";
 import toys from "./arrayFnished";
-import useToysFilter from "../Toys/useToysFilter";
+
+import { getToys } from "store/toys/selectors";
 // import arrayFnished from "./arrayFnished";
 // import useFinishedFilter from "./useFinishedFilter";
 
 const TreeDicoration = () => {
-  const filterToys = useToysFilter(toys);
+  const filterToys = useSelector(getToys);
   return (
     <>
       <div className={cn(css.TreeDicoration__wrapper)}>
@@ -30,73 +32,13 @@ const TreeDicoration = () => {
               </div>
             </div>
             <div className={cn(css.TreeDicoration__chooseBlockChooseTree)}>
-              <div
-                className={cn(css.TreeDicoration__chooseBlockChooseTreeHeader)}
-              >
-                <h1> ВЫБЕРИТЕ ЕЛКУ</h1>
-              </div>
-              <div className={cn(css.TreeDicoration__chooseBlockChooseTrees)}>
-                <div
-                  className={cn(
-                    css.TreeDicoration__chooseBlockChooseTreesLineOne
-                  )}
-                >
-                  <div
-                    className={cn(
-                      css.TreeDicoration__chooseBlockChooseTreesLeftTree
-                    )}
-                  ></div>
-                  <div
-                    className={cn(
-                      css.TreeDicoration__chooseBlockChooseTreesRightTree
-                    )}
-                  ></div>
-                </div>
-
-                <div
-                  className={cn(
-                    css.TreeDicoration__chooseBlockChooseTreesLineTwo
-                  )}
-                >
-                  <div
-                    className={cn(
-                      css.TreeDicoration__chooseBlockChooseTreesLeftTree
-                    )}
-                  ></div>
-                  <div
-                    className={cn(
-                      css.TreeDicoration__chooseBlockChooseTreesRightTree
-                    )}
-                  ></div>
-                </div>
-              </div>
+              <TreeDicorationFinished cards={toys.slice(0, 4)} />
               <div
                 className={cn(css.TreeDicoration__chooseBlockChooseBackHeader)}
               >
                 <h1>ВЫБЕРИТЕ ФОН</h1>
               </div>
-              <div className={cn(css.TreeDicoration__chooseBlockChooseBack)}>
-                <div
-                  className={cn(
-                    css.TreeDicoration__chooseBlockChooseBackLineOne
-                  )}
-                >
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                </div>
-                <div
-                  className={cn(
-                    css.TreeDicoration__chooseBlockChooseBackLineTwo
-                  )}
-                >
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                </div>
-              </div>
+              <TreeDicorationFinished cards={filterToys} isSmall />
               <div
                 className={cn(
                   css.TreeDicoration__chooseBlockChooseHeaderGarland
@@ -119,8 +61,8 @@ const TreeDicoration = () => {
           </div>
           <div className={cn(css.TreeDicoration__centralBlock)}></div>
           <div className={cn(css.TreeDicoration__toysBlock)}>
-            <TreeDicorationToys />
-            <TreeDicorationFinished cards={filterToys} />
+            <TreeDicorationFinished cards={filterToys} isSmall />
+            <TreeDicorationFinished cards={filterToys} title="Вы нарядили" />
           </div>
         </div>
       </div>
